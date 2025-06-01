@@ -16,9 +16,14 @@ Build a **minimal ASP.NET Core Web API (AOT)** app that relies on **Windows auth
 1. Install **IIS**
 2. Enable these features:
 
-   * ✅ *Windows Authentication* (Negociate, NTLM)
-   * ❌ *Anonymous Authentication*
-   * ❌ *ASP.NET Impersonation*
+**Authentication settings**:
+
+  * **Anonymous Authentication**: disabled ❌
+  * **ASP.NET Impersonation**: disabled ❌
+  * **Windows Authentication**: enabled ✅
+
+    * *Providers*: `Negotiate`, `NTLM`
+
 3. Install the **.NET Hosting Bundle**:
 
    * [.NET 9.0.5 Hosting Bundle (Windows)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
@@ -56,15 +61,6 @@ it generates this :
   </system.webServer>
 </configuration>
 ```
-
-* **Authentication settings**:
-
-  * **Anonymous Authentication**: disabled ❌
-  * **ASP.NET Impersonation**: disabled ❌
-  * **Windows Authentication**: enabled ✅
-
-    * *Providers*: `Negotiate`, `NTLM`
-
 ---
 
 ## 🛠️ Firewall Rules (local only)
@@ -93,8 +89,8 @@ New-NetFirewallRule -DisplayName "BlockExternal5000" -Direction Inbound -LocalPo
 
 * In **development** (`dotnet run`):
 
-  * Swagger loads and lists endpoints ✅
-  * Endpoints are reachable ✅
+  * Swagger loads and lists endpoint ✅
+  * Endpoint is reachable ✅
 
 * In **production** (via IIS reverse proxy):
 
