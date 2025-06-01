@@ -40,7 +40,7 @@ Build a **minimal ASP.NET Core Web API (AOT)** app that relies on **Windows auth
      [Download URL Rewrite (x64)](https://download.microsoft.com/download/1/2/8/128E2E22-C1B9-44A4-BE2A-5859ED1D4592/rewrite_amd64_en-US.msi)
 
 6. url Rewrite -> Add rule -> Reverse Proxy -> redirect to localhost:5000
-7. 
+
 it generates this :
 * **Web root**: `C:\inetpub\wwwroot`
 * **Generated `web.config`**:
