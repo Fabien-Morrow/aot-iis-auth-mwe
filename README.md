@@ -16,7 +16,7 @@ Build a **minimal ASP.NET Core Web API (AOT)** app that relies on **Windows auth
 1. Install **IIS**
 2. Enable these features:
 
-   * ✅ *Windows Authentication*
+   * ✅ *Windows Authentication* (Negociate, NTLM)
    * ❌ *Anonymous Authentication*
    * ❌ *ASP.NET Impersonation*
 3. Install the **.NET Hosting Bundle**:
