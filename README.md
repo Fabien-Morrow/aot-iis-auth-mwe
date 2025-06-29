@@ -1,13 +1,12 @@
 
-# 🔧 ASP.NET Core Web API (AOT) + IIS + Windows Auth — Swagger Empty
+# 🔧 ASP.NET Core Web API (AOT) + IIS + Windows Auth
 
 ## 🎯 Goal
 
-Build a **minimal ASP.NET Core Web API (AOT)** app that relies on **Windows authentication via IIS**, with a working Swagger interface.
+Build a **minimal ASP.NET Core Web API (AOT)** app that relies on **Windows authentication via IIS**
 
-* ASP.NET Core 8 Web API (AOT)
+* ASP.NET Core 10 Web API (AOT)
 * Windows Authentication (Negotiate)
-* Swagger enabled with `UseSwagger()` + `UseSwaggerUI()`
 * No Razor / MVC Views — just API controllers
 
 
@@ -24,9 +23,11 @@ Build a **minimal ASP.NET Core Web API (AOT)** app that relies on **Windows auth
 
     * *Providers*: `Negotiate`, `NTLM`
 
-3. Install the **.NET Hosting Bundle**:
+3. Install the **.NET Hosting Bundle** and the sdk:
 
-   * [.NET 9.0.5 Hosting Bundle (Windows)](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+   * [.NET 10 Hosting Bundle (Windows)](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-aspnetcore-10.0.0-preview.5-windows-hosting-bundle-installer)
+  
+   *  [.NET 10 sdk (Windows)](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-10.0.100-preview.5-windows-x64-installer)
 4. Restart IIS:
 
    ```bash
@@ -73,37 +74,29 @@ New-NetFirewallRule -DisplayName "BlockExternal5000" -Direction Inbound -LocalPo
 ```
 ---
 ## 🛠️ Setting up the mwe
-1. Open the `WebApplication2` project
-2. Publish the app:
+1. Open the `WebApplication1` project
+2. uncomment the two commented blocks
+3. Publish the app:
    ```bash
    dotnet publish -c Release
-3. Run the published executable (it listens on port `5000`)
-4. Open a browser (e.g., Chrome) and navigate to:
+4. Run the published executable (it listens on port `5000`)
+5. Open a browser (e.g., Chrome) and navigate to:
 
    ```
-   http://localhost:80
+   http://localhost:80/hello
    ```
-5. Sign in using a domain admin account
+6. Sign in
 
 ---
 
 ## ❌ Actual Result
 
-* In **development** (`dotnet run`):
-
-  * Swagger loads and lists endpoint ✅
-  * Endpoint is reachable ✅
-
-* In **production** (via IIS reverse proxy):
-
-  * Swagger UI loads, but **endpoint is missing** ❌
-  * The backend app is correctly running on `localhost:5000`
+  * the browser constantly asks for sign-in
 
 ---
 
 ## ✅ Expected Result
 
-* Swagger should **display the API endpoint** (e.g., `POST /api/Maintenance/reset`)
-* I should be able to call them successfully with Windows authentication
+* I should be able to see the result "hello world"
 
 
